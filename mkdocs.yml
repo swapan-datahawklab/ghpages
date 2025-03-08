@@ -1,1 +1,4 @@
-site_name: My Docs
+site_name: ghpages
+site_url: https://swapan-datahawklab.github.io/ghpages/
+theme:
+  name: material
