@@ -1,0 +1,21 @@
+**Swapan**: freemaker template to generate spring boot application
+
+**ChatGPT**: Here's a basic FreeMarker template that you can use to generate a Spring Boot application. This template will create a simple Spring Boot application structure with a controller, a service, and a basic `pom.xml`.
+
+**ChatGPT**: {
+  "name": "spring_boot_freemarker_template",
+  "type": "code/other",
+  "content": "<#-- FreeMarker Template for Spring Boot Application -->\n<#assign packageName = \"com.example.demo\">\n<#assign className = \"DemoApplication\">\n\n<#-- Generate POM file -->\n<#if artifactId?? && groupId??>\n<@artifact>\n    <#-- POM Configuration -->\n    <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n    <project xmlns=\"http://maven.apache.org/POM/4.0.0\"\n             xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n             xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\n        <modelVersion>4.0.0</modelVersion>\n\n        <groupId>${groupId}</groupId>\n        <artifactId>${artifactId}</artifactId>\n        <version>0.0.1-SNAPSHOT</version>\n        <packaging>jar</packaging>\n\n        <name>${artifactId}</name>\n        <description>Spring Boot Example Application</description>\n\n        <parent>\n            <groupId>org.springframework.boot</groupId>\n            <artifactId>spring-boot-starter-parent</artifactId>\n            <version>2.6.6</version>\n            <relativePath/> <!-- lookup parent from repository -->\n        </parent>\n\n        <properties>\n            <java.version>11</java.version>\n        </properties>\n\n        <dependencies>\n            <dependency>\n                <groupId>org.springframework.boot</groupId>\n                <artifactId>spring-boot-starter-web</artifactId>\n            </dependency>\n            <!-- Add more dependencies as required -->\n        </dependencies>\n\n        <build>\n            <plugins>\n                <plugin>\n                    <groupId>org.springframework.boot</groupId>\n                    <artifactId>spring-boot-maven-plugin</artifactId>\n                </plugin>\n            </plugins>\n        </build>\n    </project>\n</@artifact>\n</#if>\n\n<#-- Generate Main Application File -->\npackage ${packageName};\n\nimport org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\n\n@SpringBootApplication\npublic class ${className} {\n    public static void main(String[] args) {\n        SpringApplication.run(${className}.class, args);\n    }\n}\n\n<#-- Generate a REST Controller -->\n<#assign controllerName = \"DemoController\">\n\npackage ${packageName}.controller;\n\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RequestMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\n@RestController\n@RequestMapping(\"/api/demo\")\npublic class ${controllerName} {\n\n    @GetMapping(\"/hello\")\n    public String sayHello() {\n        return \"Hello, World!\";\n    }\n}\n\n<#-- Generate a Service File -->\n<#assign serviceName = \"DemoService\">\n\npackage ${packageName}.service;\n\nimport org.springframework.stereotype.Service;\n\n@Service\npublic class ${serviceName} {\n\n    public String getGreeting() {\n        return \"Hello from Service!\";\n    }\n}\n"
+}
+
+**ChatGPT**: {"result": "Successfully created text document 'spring_boot_freemarker_template' which will be referenced in all future messages with the unique identifier textdoc_id: '67144bd1bebc81918cd57245e61f64ea'", "textdoc_id": "67144bd1bebc81918cd57245e61f64ea", "name": "spring_boot_freemarker_template"}
+
+**ChatGPT**: This FreeMarker template will generate the following:
+
+- `pom.xml` file: Configures Maven to use Spring Boot.
+- Main Spring Boot Application (`DemoApplication.java`).
+- A basic REST controller (`DemoController.java`) that has a `GET` endpoint returning "Hello, World!".
+- A service class (`DemoService.java`) which can be used to manage business logic.
+
+To use the template, adjust the values for `packageName`, `groupId`, `artifactId`, and other variables as required. Let me know if you need more details or customization.
+
