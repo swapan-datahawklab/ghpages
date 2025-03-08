@@ -1,8 +1,8 @@
 
 ## Invoke-OpenShiftConsole
 
-   ```powershell
-   function Invoke-OpenShiftConsole {
+```
+function Invoke-OpenShiftConsole {
     param (
         [string]$ClusterName,
         [string]$Username,
